@@ -1,0 +1,33 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-tera-instagram-block {
+	max-width: 740px;
+	padding: 2rem;
+	margin: 0 auto;
+	color: $black;
+	background: $green;
+	border: .2rem solid $black;
+}
+.tera-instagram-posts {
+	&.is-initialized {
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			display: block;
+			width: 100%;
+			height: 100%;
+			content: '';
+			background-color: rgba(#ffffff, .2);
+		}
+	}
+	.dashicons {
+		text-decoration: none;
+		vertical-align: middle;
+	}
+}

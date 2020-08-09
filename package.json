@@ -1,0 +1,20 @@
+{
+  "name": "tera-instagram-block-cgb-guten-block",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cgb-scripts start",
+    "build": "cgb-scripts build",
+    "eject": "cgb-scripts eject"
+  },
+  "dependencies": {
+    "cgb-scripts": "1.23.1",
+    "lodash": "^4.17.19"
+  },
+  "devDependencies": {
+    "stylelint": "^13.6.1",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0"
+  }
+}
