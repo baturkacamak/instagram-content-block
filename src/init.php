@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Blocks Initializer
  *
@@ -136,11 +138,7 @@ if (!function_exists("register_instagram_block_assets")) {
             ?>
         <?php if ($attributes["posts"]): ?>
             <div
-                    style="--column-count: <?php echo Arr::get(
-                        $attributes,
-                        "columnCount",
-                        3
-                    ); ?>"
+                    style="--column-count: <?php echo esc_attr(Arr::get($attributes, "columnCount",3)); ?>"
                     class="tera-instagram-posts is-initialized">
                 <?php foreach ($attributes["posts"] as $post): ?>
                     <div class="tera-instagram-post">
