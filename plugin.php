@@ -14,15 +14,14 @@
  */
 
 // Exit if accessed directly.
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
+// Include the autoloader if it exists.
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-/**
- * Block Initializer.
- */
+// Include the plugin's initialization file.
 require_once plugin_dir_path(__FILE__) . 'src/init.php';
