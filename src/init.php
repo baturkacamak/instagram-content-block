@@ -111,30 +111,29 @@ if (!function_exists("register_instagram_block_assets")) {
         ]);
     }
 
+    if (!function_exists("render_instagram_block")) {
+        /**
+         * Render the Instagram block.
+         *
+         * This function is used to render the output of the Instagram block
+         * in the front-end of the website. It enqueues the Instagram Embed
+         * script and then iterates over the array of posts passed in the
+         * $attributes argument, rendering each post as a blockquote element.
+         *
+         * @use \Illuminate\Support\Arr
+         *
+         * @param array $attributes An array of block attributes.
+         *
+         * @return string The rendered output of the block.
+         */
+        function render_instagram_block(array $attributes): string
+        {
+            // Enqueue the Instagram Embed script.
+            wp_enqueue_script("instagram-embed");
 
-if (!function_exists("render_instagram_block")) {
-     /**
-     * Render the Instagram block.
-     *
-     * This function is used to render the output of the Instagram block
-     * in the front-end of the website. It enqueues the Instagram Embed
-     * script and then iterates over the array of posts passed in the
-     * $attributes argument, rendering each post as a blockquote element.
-     *
-     * @use \Illuminate\Support\Arr
-     *
-     * @param array $attributes An array of block attributes.
-     *
-     * @return string The rendered output of the block.
-     */
-    function render_instagram_block(array $attributes) : string
-    {
-        // Enqueue the Instagram Embed script.
-        wp_enqueue_script("instagram-embed");
-
-        // Start an output buffer to capture the block's rendering.
-        ob_start();
-        ?>
+            // Start an output buffer to capture the block's rendering.
+            ob_start();
+            ?>
         <?php if ($attributes["posts"]): ?>
             <div
                     style="--column-count: <?php echo Arr::get(
@@ -160,11 +159,10 @@ if (!function_exists("render_instagram_block")) {
                     <?php endforeach; ?>
             </div>
             <?php endif; ?>
-        <?php
-        // Return the captured output and flush the output buffer.
+        <?php // Return the captured output and flush the output buffer.
         return ob_get_clean();
+        }
     }
-}
     // Hook: Block assets.
     add_action("init", "register_instagram_block_assets", 10);
 }
