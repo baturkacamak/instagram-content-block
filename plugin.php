@@ -14,6 +14,11 @@
  */
 
 // Exit if accessed directly.
+use Tera\CacheProvider;
+use Tera\InstagramDataParser;
+use Tera\InstagramDataProvider;
+use Tera\PostHtmlBuilder;
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -22,6 +27,13 @@ if (!defined('ABSPATH')) {
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
+
+$cacheProvider = new CacheProvider('instagram_feed_cache', 120);
+$dataParser    = new InstagramDataParser($cacheProvider->fetchData('teknoseyir'));
+$dataProvider  = new InstagramDataProvider($dataParser);
+$htmlBuilder   = new PostHtmlBuilder([320, 640, 960]);
+
+new \Tera\Instagram($data_provider, $html_builder, $cache_provider);
 
 // Include the plugin's initialization file.
 require_once plugin_dir_path(__FILE__) . 'src/init.php';

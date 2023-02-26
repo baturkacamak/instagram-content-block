@@ -34,8 +34,6 @@ if (!defined("ABSPATH")) {
  * @since 1.0.0
  */
 
-new Instagram();
-
 if (!function_exists("register_instagram_block_assets")) {
     /**
      * Register the necessary scripts and styles for the block.
